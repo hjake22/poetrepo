@@ -1,0 +1,27 @@
+body {
+    background-color: rgba(145, 15, 0, 0.384); 
+}
+ /*background color is 1 css property*/
+  
+h1 {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+}
+  /*color, text alignment, and font are three more different css properties*/
+h2 {
+    color: purple;
+    text-align: center;
+    font-size: 50px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    text-shadow: 2px 2px;
+}
+  /*font size and text shadows are also cool different css properties!*/
+ 
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }

@@ -1,2 +1,1 @@
-# poetrepo
-A repository demonstrating a variety of coding languages, all projects are themed with various excerpts of self written poetry
+This program displays my ability to utilize the languages, html and css, to display a poem of mine written on October 2nd, 2023
