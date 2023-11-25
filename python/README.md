@@ -1,0 +1,1 @@
+this code takes stats of a poem and calculates the average lines per stanza!
