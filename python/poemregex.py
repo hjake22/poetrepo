@@ -1,5 +1,4 @@
-import sys
-import os
+import sys, os
 import re
 
 class PoemStat:
@@ -40,31 +39,32 @@ def main():
         if title_match:
             poem_title = title_match.group(1).strip()
 
-        author_match = re.search(r"by (.*)\n", poem_content)
+        author_match = re.search(r"by (.*)\n", poem_content) #this assumes the poem has a "by " + author format
         if author_match:
             poem_author = author_match.group(1).strip()
 
         if not poem_title or not poem_author:
-            sys.exit("Error: Unable to extract title or author from the poem.")
+            sys.exit("unable to determine title or author from the poem")
 
         poem_stats = PoemStat(poem_title, poem_author)
 
-        # Use regex to split the poem into stanzas
+        # split the poem into stanzas
         stanzas = re.split(r"\n\s*\n", poem_content)
         for idx, stanza in enumerate(stanzas):
-            if idx == 0:  # Skip the first stanza containing title and author
+            if idx == 0:  # Skip the first stanza (which isn't a stanza, but rather the name and title)
                 continue
 
             lines = stanza.split("\n")
             if lines and lines[0]:  # Check if the stanza is not empty
                 poem_stats.add_stats(len(lines))
 
-    avg_lines_per_stanza = poem_stats.avg_lines_per_stanza()
+    avg_lines_per_stanza = poem_stats.avg_lines_per_stanza() 
+
     print(f"Title: {poem_stats.title}")
     print(f"Author: {poem_stats.author}")
     print(f"Line count: {poem_stats.total_lines}")
     print(f"Stanza count: {poem_stats.stanzas}")
-    print(f"Avg lines per stanza: {avg_lines_per_stanza:.3f}")
+    print(f"Avg lines per stanza: {avg_lines_per_stanza:.3f}") #rounds to 3 decimal places
 
 if __name__ == "__main__":
     main()
